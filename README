@@ -1,0 +1,41 @@
+feed2twitter.pl
+
+Version: 1.0
+Author : Wolfgang Wiese ("xwolf"), http://www.xwolf.de
+GitHub : http://github.com/xwolfde/feed2twitter/
+
+Description:
+This perl script reads out a feed (mostly from a blog). It will then 
+extract its title and the url to the article to create a twitter-message.
+This message will next be posted to a given twitter-account.
+
+Syntax:
+./feed2twitter.pl (--feed=FEEDURL|--msg) --twitter=TWITTERACCOUNT [--hashtag=tag] [--debug] [--quiet]
+
+Example:
+./feed2twitter.pl --twitter=mytwittername --feed=http://blogs.mydomain.com/feed --hashtag=mytag --quiet
+
+Configuration:
+Please change the following settings at the top of feed2twitter.pl:
+
+
+my $CONFIG = {
+        "api-key"               => 'your-api-key',
+        "consumer_key"          => 'your-consumer-key',
+        "consumer_secret"       => 'your-consumer-secret',
+	
+        "geo_lat"               => '49.573678096',
+        "geo_long"              => '11.027634143',
+};
+
+To get your api-key, consumer_key, consumer_secret you have to register your version of the
+perlscript at https://dev.twitter.com/
+
+
+Required Perl-Modules:
+- Net::Twitter::Lite
+- XML::Feed;
+- File::Spec;
+- Data::Dumper;
+
+
